@@ -8,4 +8,4 @@ class ShoppingCart(models.Model):
 class Order(models.Model):
     books = models.ManyToManyField(Book)
     orderDate = models.DateTimeField(auto_now=True)
-    totalSum = models.IntegerField()
+    totalSum = models.IntegerField(default=0)

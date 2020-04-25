@@ -13,9 +13,11 @@ def signIn(request):
                 login(request, user)
                 return redirect('/dashboard')
             else:
-                return render(request,'signIn.html')
+                form = SignInForm()
+                return render(request,'signIn.html',{'form':form})
         else:
-            return render(request,'signIn.html')
+            form = SignInForm()
+            return render(request,'signIn.html',{'form':form})
     else:
         form = SignInForm()
         return render(request,'signIn.html',{'form':form})
