@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+
+{%block title%}Booksters - Sign In{%endblock%}
+
+{%block body%}
+<form action="{%url 'signIn'%}" method="POST">
+    {%csrf_token%}
+    {{form}}
+    <input type="Submit" value="Submit">
+</form>
+{%endblock%}
