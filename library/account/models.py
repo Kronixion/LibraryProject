@@ -15,5 +15,5 @@ class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phoneNo = models.CharField(max_length=10)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
-    shoppingCart = models.OneToOneField(ShoppingCart, on_delete=models.CASCADE, null=True)
+    shoppingCart = models.OneToOneField(ShoppingCart, on_delete=models.CASCADE)
     order = models.ManyToManyField(Order)
