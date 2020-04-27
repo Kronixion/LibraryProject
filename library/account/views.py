@@ -14,13 +14,13 @@ def signIn(request):
                 return redirect('landingPage')
             else:
                 form = SignInForm()
-                return render(request,'signIn.html',{'form':form})
+                return render(request,'LoginPage.html',{'form':form})
         else:
             form = SignInForm()
-            return render(request,'signIn.html',{'form':form})
+            return render(request,'LoginPage.html',{'form':form})
     else:
         form = SignInForm()
-        return render(request,'signIn.html',{'form':form})
+        return render(request,'LoginPage.html',{'form':form})
 
 def signOut(request):
     logout(request)

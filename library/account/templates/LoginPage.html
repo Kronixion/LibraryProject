@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}Booksters - Login{%endblock%}
+{%block additionalMetaData%}
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{%static 'css/LoginPage.css'%}" type="text/css"/>
+{%endblock%}
+
+{%block body%}
+  <div id="login-content">
+  <div class="wrapper fadeInDown">
+    <div class="welcome-message">
+      <span id="welcome-text">Welcome to Book</span>
+      <span id="welcome-text-yellow">sters</span>
+      <span id="welcome-text">, your little library!</span>
+    </div>
+  
+    <div id="formContent">
+      <div id="login-text">Login</div>
+      <form action="{%url 'landingPage'%}" method="POST">
+        {%csrf_token%}
+        {{form.username}}
+        {{form.password}}
+        <input type="submit" class="fadeIn third" value="Log In">
+      </form>
+    </div>
+  </div> 
+  </div>
+{%endblock%}
