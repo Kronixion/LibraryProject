@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import SignInForm
 from django.contrib.auth import authenticate, login, logout
-
+from django.contrib.auth.decorators import login_required
 def signIn(request):
     if request.method == 'POST':
         form = SignInForm(request.POST)
@@ -25,3 +25,7 @@ def signIn(request):
 def signOut(request):
     logout(request)
     return redirect('/')
+
+@login_required
+def shoppingCart(request):
+    return render(request,'shopping_cart.html')
