@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block title%}Booksters - Search Books{%endblock%}
+
+{%block additionalMetaData%}
+<link rel="stylesheet" href="{%static 'css/searchBooks.css'%}" type="text/css">
+{%endblock%}
+
+{%block body%}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <form action="{%url 'searchBooks'%}" method="POST">
+                {%csrf_token%}
+                <div class="form-group">
+                    {{form}}
+                    <button id="searchButton" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {%for book in books%}
+        <div class="row book">
+            <div class="col-lg-3">
+                <img src="media/{{book.coverImage}}" alt="">
+            </div>
+            <div class="col-lg-3">
+                <p><span class="label">Title:</span> {{book.title}}</p>
+                <p><span class="label">Author:</span> {{book.author}}</p>
+                <p><span class="label">Date:</span> {{book.yearOfRelease}}</p>
+                <p><span class="label">Publisher:</span> {{book.publisher}}</p>
+                <p><span class="label">ISBN:</span> {{book.ISBN}}</p>
+                <p><span class="label">Price:</span> {{book.price}}$</p>
+            </div>
+            <div class="col-lg-3">
+                <p class="description"><span class="label">Description:</span> {{book.description}}</p>
+            </div>
+            <div class="col-lg-3 d-flex justify-content-end">
+                <div>
+                    {%if book.rental == False%}
+                        <button class="disabledButton" disabled>Rent</button>
+                    {%else%}
+                        <button class="activeButton">Rent</button>
+                    {%endif%}
+                    {%if book.exchange == False%}
+                        <button class="disabledButton" disabled>Exchange</button>
+                    {%else%}
+                        <button class="activeButton">Exchange</button>
+                    {%endif%}
+                    <button class="activeButton">Buy</button>
+                </div>
+            </div>
+        </div>
+    {%endfor%}
+</div>
+{%endblock%}

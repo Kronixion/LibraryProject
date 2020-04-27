@@ -4,7 +4,7 @@ class Book(models.Model):
     title = models.CharField(max_length=50)
     author = models.CharField(max_length=70)
     coverImage = models.ImageField(upload_to='books/')
-    description = models.TextField(max_length=200)
+    description = models.TextField()
     yearOfRelease = models.DateField()
     price = models.IntegerField()
     rental = models.BooleanField()

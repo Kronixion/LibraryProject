@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from purchases.models import ShoppingCart, Order
+from book.models import Book
 
 class Address(models.Model):
     street = models.CharField(max_length=50)
@@ -11,7 +11,21 @@ class Address(models.Model):
     county = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.street + " " + str(self.streetNo) + " " + str(self.apartmentNo)
+
+class ShoppingCart(models.Model):
+    books = models.ManyToManyField(Book,blank=True, null=True)
+    totalSum = models.IntegerField(default=0)
+
+    def __str__(self):
+        return str(self.id)
+
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phoneNo = models.CharField(max_length=10)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
+    shoppingCart = models.OneToOneField(ShoppingCart,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username

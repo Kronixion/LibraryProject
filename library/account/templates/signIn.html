@@ -3,7 +3,7 @@
 {%block title%}Booksters - Sign In{%endblock%}
 
 {%block body%}
-<form action="{%url 'signIn'%}" method="POST">
+<form action="{%url 'landingPage'%}" method="POST">
     {%csrf_token%}
     {{form}}
     <input type="Submit" value="Submit">

@@ -1,0 +1,119 @@
+body{
+    background-color: #EDDDC4;
+}
+
+.container{
+    margin-top: 2%;
+}
+
+.col-lg-3,.col-lg-12{
+    padding: 0px;
+}
+
+.col-lg-3, .col-lg-4{
+    margin-top:10px;
+}
+
+.col-lg-3:first-of-type{
+    padding-right: 10px;
+    margin:0px;
+}
+
+.col-lg-3:last-of-type{
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.book{
+    margin-bottom:2%;
+    background-color: white;
+    padding: 0px;
+    transition: 0.2s all;
+}
+
+.book:hover{
+    box-shadow: 0 0 0 0.1rem rgba(80,116,108,1)
+}
+
+.description{
+    text-align: justify;
+}
+
+img{
+    height:350px;
+    width: 250px;
+}
+
+.form-group{
+    position: relative;
+}
+
+#searchBar{
+    border-radius: 20px;
+    width: 100%;
+}
+
+#searchBar:focus{
+    border-color: #50746C;
+    box-shadow: 0 0 0 0.1rem rgba(80,116,108,1)
+}
+
+#searchBar:focus ~ #searchButton{
+    background: #50746C;
+}
+
+#searchButton{
+    position:absolute;
+    top:8%;
+    left:96%;
+    z-index: 2;
+    outline: none;
+    border: 3px solid #E7B34D;
+    border-radius: 100%;
+    transition: 0.5s background-color;
+}
+
+.activeButton{
+    margin-top:10px;
+    height: 10%;
+    background: transparent;
+    border-color:#50746C;
+    color: #50746C;
+    width: 100%;
+    border-radius: 20px;
+    transition: 0.2s all;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.activeButton:focus{
+    outline:none;
+}
+
+.activeButton:hover{
+    background: #50746C;
+    color: white;
+}
+
+.disabledButton{
+    width: 100%;
+    border-radius: 20px;
+    margin-top:10px;
+    height: 10%;
+    background: white;
+    border: 1px solid gray;
+    color:gray;
+}
+
+
+.activeButton:first-of-type{
+    margin-top:0px;
+}
+
+.d-flex div{
+    width:100%;
+}
+
+.label{
+    font-weight: 700;
+}

@@ -11,7 +11,7 @@ def signIn(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/dashboard')
+                return redirect('landingPage')
             else:
                 form = SignInForm()
                 return render(request,'signIn.html',{'form':form})
