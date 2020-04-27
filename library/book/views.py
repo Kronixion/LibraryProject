@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Book
 from .forms import SearchForm
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def searchBooks(request):
     if request.method == "POST":
         form = SearchForm(request.POST)
