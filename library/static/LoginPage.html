@@ -6,14 +6,31 @@
   <title>Login</title>
 </head>
 <body>
-  <h2 id="welcome-text">Welcome to Booksters, your little library!</h2>
-  <div class="login">
-    <h3>Login</h3>
-    <h4>Username</h4>
-    <input type="text" placeholder="username">
-    <h4>Password</h4>
-    <input type="password" placeholder="password">
-    <input type="submit" value="submit">
+  
+  <div id="login-content">
+  <div class="wrapper fadeInDown">
+    <div class="welcome-message">
+      <span id="welcome-text">Welcome to Book</span>
+      <span id="welcome-text-yellow">sters</span>
+      <span id="welcome-text">, your little library!</span>
+    </div>
+  
+    <div id="formContent">
+      <div id="login-text">Login</div>
+      <!-- login form -->
+      <form>
+        <input type="text" id="login" class="fadeIn first" name="login" placeholder="e-mail">
+        <input type="text" id="password" class="fadeIn second" name="login" placeholder="password">
+        <input type="submit" class="fadeIn third" value="Log In">
+      </form>
+  
+      <!-- forgot passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div> 
   </div>
 </body>
 </html>
