@@ -1,0 +1,48 @@
+{%extends 'base.html'%}
+  {% load static %}
+  {%block title%}Booksters - Sign In{%endblock%}
+    {%block additionalCss%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/shopping_cart_css.css' %}">
+    {%endblock%}
+  {%block body%}
+
+  <div class="shopping-cart">
+    <!-- Title -->
+    <div class="title">
+      Shopping Bag
+    </div>
+
+    <!-- Product #1 -->
+    <div class="item">
+      <div class="buttons">
+        <span class="delete-btn"></span>
+        <span class="like-btn"></span>
+      </div>
+
+      <div class="image">
+        <img src="{% static 'png/book.png' %}" alt="" width="70px" height="50px" align="center|vertical" />
+      </div>
+
+      <div class="description">
+        <span>Our Legacy</span>
+        <span>Futuristic Book</span>
+        <span>Brown Charles</span>
+      </div>
+
+      <div class="total-price">
+        <span name="price_item">$349
+        </span>
+      </div>
+    </div>
+    <div class="total_price_sum">
+      <span>Total price  </span>
+      <span id="total_price_sum_js">$0.0</span>
+    </div>
+
+
+    <button class="button-submit" align="bottom">Submit Order</button>
+
+  </div>
+  <script src="{% static 'javascript/calculate_sum.js' %}"></script>
+
+{%endblock%}
