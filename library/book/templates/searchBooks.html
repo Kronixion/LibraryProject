@@ -19,6 +19,7 @@
             </form>
         </div>
     </div>
+    {%if books%}
     {%for book in books%}
         <div class="row book">
             <div class="col-lg-3">
@@ -52,5 +53,14 @@
             </div>
         </div>
     {%endfor%}
+    {%else%}
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="text-align: center; color:rgba(0,0,0,0.2)">
+                    Books not found...
+                </h1>
+            </div>
+        </div>
+    {%endif%}
 </div>
 {%endblock%}
