@@ -5,5 +5,4 @@ from account.models import Account
 class Order(models.Model):
     books = models.ManyToManyField(Book)
     orderDate = models.DateTimeField(auto_now=True)
-    totalSum = models.IntegerField(default=0)
     user = models.ForeignKey(Account,on_delete = models.CASCADE,blank=True, null=True)

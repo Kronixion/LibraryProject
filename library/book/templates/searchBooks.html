@@ -26,7 +26,7 @@
                 <img src="media/{{book.coverImage}}" alt="">
             </div>
             <div class="col-lg-3">
-                <p><span class="label">Title:</span> {{book.title}}</p>
+                <p><span class="label">Title:</span> <span class="title">{{book.title}}</span></p>
                 <p><span class="label">Author:</span> {{book.author}}</p>
                 <p><span class="label">Date:</span> {{book.yearOfRelease}}</p>
                 <p><span class="label">Publisher:</span> {{book.publisher}}</p>
@@ -48,7 +48,7 @@
                     {%else%}
                         <button class="activeButton">Exchange</button>
                     {%endif%}
-                    <button class="activeButton">Buy</button>
+                    <button class="activeButton buyButton" value={{book.id}}>Buy</button>
                 </div>
             </div>
         </div>
@@ -62,5 +62,21 @@
             </div>
         </div>
     {%endif%}
+    
 </div>
+{%endblock%}
+
+{%block scripts%}
+<script>
+    $(".buyButton").click(function(){
+        let bookId = $(this).attr("value")
+        $.post("/shoppingCart",
+        {
+            bookId: bookId,
+        },
+        function(data, status){
+            alert(data);
+        });
+    })
+</script>
 {%endblock%}

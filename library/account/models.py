@@ -16,10 +16,15 @@ class Address(models.Model):
 
 class ShoppingCart(models.Model):
     books = models.ManyToManyField(Book,blank=True, null=True)
-    totalSum = models.IntegerField(default=0)
 
     def __str__(self):
         return str(self.id)
+    
+    def sumOfBooks(self):
+        sum=0
+        for book in self.books.all():
+            sum+=int(book.price)
+        return sum
 
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
