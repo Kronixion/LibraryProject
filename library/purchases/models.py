@@ -6,6 +6,4 @@ class Order(models.Model):
     books = models.ManyToManyField(Book)
     orderDate = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(Account,on_delete = models.CASCADE,blank=True, null=True)
-
-    def __str__(self):
-        return self.id
+    totalSum = models.IntegerField(default=0)
