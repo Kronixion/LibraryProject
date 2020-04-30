@@ -14,7 +14,6 @@ body{
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* margin-top: -500px; */
 }
 
 .feature{
@@ -43,6 +42,10 @@ body{
     font-size: 30px;
     margin: 5%;
     margin-bottom: 0;
+    -moz-box-shadow: 5px 10px 5px#50746C;
+    -webkit-box-shadow: 5px 10px 5px #50746C;
+    box-shadow: 5px 10px 5px #50746C;
+    border: 1px solid white;
 }
 
 #button-discover:hover {
