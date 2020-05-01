@@ -43,3 +43,6 @@ def shoppingCart(request):
         return HttpResponse("The book "+book.title +" has been added to the shopping cart !")
     else:
         return render(request,'shopping_cart.html',{'shoppingCart':shoppingCart.books.all(),'totalSum':shoppingCart.sumOfBooks(),'totalNumberOfItems':len(shoppingCart.books.all())})
+
+def dashboard(request):
+    return render(request,'dashboard.html')

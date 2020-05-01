@@ -1,0 +1,60 @@
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+.nude-smudge{
+    height: 800px;
+    width: 100%;
+    position: fixed;
+}
+
+.feature-images{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.feature{
+    height: 500px;
+    padding: auto;
+    margin: 4%;
+}
+
+#title{
+    color: #50746C;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    font-weight: 700;
+}
+
+#button-discover{
+    display: flex;
+    justify-content: center;
+    background-color:  #50746C;
+    border-radius: 5%;
+    color: white;
+    height: 100px;
+    width: 400px;
+    font-size: 30px;
+    margin: 5%;
+    margin-bottom: 0;
+    -moz-box-shadow: 5px 10px 5px#50746C;
+    -webkit-box-shadow: 5px 10px 5px #50746C;
+    box-shadow: 5px 10px 5px #50746C;
+    border: 1px solid white;
+}
+
+#button-discover:hover {
+    background-color: #E7B34D;
+}
+
+.wrapper-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+}

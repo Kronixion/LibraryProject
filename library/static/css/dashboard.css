@@ -1,0 +1,65 @@
+h1{
+    text-align:center;
+    color: #50746C;
+}
+
+body{
+    background-color: #EDDDC4;;
+}
+
+.container{
+    margin-top:5%;
+    width: 1250px;
+}
+
+.row:first-of-type{
+    margin-bottom: 4%;
+}
+
+.col-lg-3,.col-md-6{
+    margin:0px;
+}
+
+.col-md-6{
+    margin-top:2%;
+}
+
+.card{
+    border:none;
+    margin:0px;
+    border-radius: 22px;
+    box-shadow: 2px 3px 3px 1px rgba(0,0,0,0.5);
+}
+
+.card-img-top{
+    border-radius: 20px;
+}
+
+.card-body{
+    padding: 0px;
+    border-radius: inherit;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-text{
+    padding: 6%;
+    text-align: justify;
+}
+
+.container button{
+    color:white;
+    border: 1px solid #50746C;
+    background:#50746C;
+    height:50px;
+    width:100%;
+    transition: 0.2s all;
+    border-radius: 20px;
+}
+
+.container button:hover{
+    background-color: white;
+    color:#50746C;
+}

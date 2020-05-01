@@ -4,11 +4,25 @@
 {%block additionalMetaData%}
   <meta charset="UTF-8">
   <link rel="stylesheet" href="{%static 'css/LoginPage.css'%}" type="text/css"/>
+  <link rel="stylesheet" href="{%static 'css/WelcomePage.css'%}" type="text/css">
 {%endblock%}
 
 {%block body%}
   {%if user.is_authenticated%}
-  
+  <div id=>
+    <div>
+      <img class="nude-smudge" src="{%static 'images/nude-smudge.PNG'%}" alt="">
+      <div class="wrapper-title">
+        <div id="title">On Booksters, you can rent, exchange or buy books from your local library!</div>
+        <a href="{%url 'dashboard'%}"><button id="button-discover">Discover more</button></a>
+      </div>
+      <div class="feature-images">
+        <img class="feature" src="{%static 'images/rent-books.PNG'%}" alt="">
+        <img class="feature" src="{%static 'images/exchange-books.PNG'%}" alt="">
+        <img class="feature" src="{%static 'images/buy-books.PNG'%}" alt="">
+      </div>
+    </div>
+  </div>
   {%else%}
   <div id="login-content">
     <div class="wrapper fadeInDown">
