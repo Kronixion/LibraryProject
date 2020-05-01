@@ -46,6 +46,7 @@ body{
     -webkit-box-shadow: 5px 10px 5px #50746C;
     box-shadow: 5px 10px 5px #50746C;
     border: 1px solid white;
+    transition: 0.2s all;
 }
 
 #button-discover:hover {

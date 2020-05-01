@@ -1,0 +1,40 @@
+body{
+    background:#EDDDC4;
+}
+
+.container{
+    width:900px;
+    margin-top: 5%;
+    border: 1px solid #50746C;
+    background-color: white;
+    box-shadow: 2px 3px 3px 1px rgba(0,0,0,0.6);
+    border-radius: 20px;
+}
+
+.row{
+    margin-top: 3%;
+}
+
+.row:first-of-type{
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.row:first-of-type h5{
+    color: rgba(0,0,0,0.6);
+    padding: 2%;
+}
+
+.header{
+    border-bottom:1px solid rgba(0,0,0,0.6);
+}
+
+p{
+    text-align:center;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+p:last-child span{
+    color:white;
+    font-size:20px;
+}

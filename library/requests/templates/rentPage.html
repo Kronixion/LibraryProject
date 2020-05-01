@@ -4,9 +4,48 @@
 {%block title%}Booksters - Rented Books{%endblock%}
 
 {%block additionalMetaData%}
-<link rel="stylesheet" href="" type="text/css">
+<link rel="stylesheet" href="{%static 'css/rentPage.css'%}" type="text/css">
 {%endblock%}
 
 {%block body%}
-
+<div class="container">
+    <div class="row">
+        <div class="col lg-12">
+            <h5>Rent Requests</h5>
+        </div>
+    </div>
+    <div class="row header">
+        <div class="col-lg-4">
+            <strong><p>Request Number</p></strong>
+        </div>
+        <div class="col-lg-4">
+            <strong><p>Book Title</p></strong>
+        </div>
+        <div class="col-lg-4">
+            <strong><p>Request State</p></strong>
+        </div>
+    </div>
+    {%for request in rentedRequests%}
+    <div class="row">
+        <div class="col-lg-4">
+            <p>{{forloop.counter}}.</p>
+        </div>
+        <div class="col-lg-4">
+            <p>
+                {{request.book.title}}
+            </p>
+        </div>
+        <div class="col-lg-4">
+            <p><span>{{request.requestState}}</span></p>
+        </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}
+{%block scripts%}
+<script>
+    $("p:last-child:contains('PENDING')").css("background-color","#b7bf17")
+    $("p:last-child:contains('ACCEPTED')").css("background-color","green")
+    $("p:last-child:contains('REJECTED')").css("background-color","red")
+</script>
 {%endblock%}

@@ -1,0 +1,48 @@
+body{
+    background-color: #EDDDC4;
+}
+
+h1{
+    color: #50746C;
+    text-align: center;
+    margin-top: 2%;
+}
+
+h1 span{
+    color:#E7B34D;
+}
+
+.container{
+    background-color: white;
+    margin-top: 5%;
+    width: 450px;
+    padding: 0px;
+    box-shadow: 2px 3px 3px 1px rgba(0,0,0,0.6);
+    border-radius: 20px;
+}
+
+.container form{
+    padding: 4%;
+}
+
+input::placeholder{
+    text-align:center;
+}
+
+input,select{
+    text-align:center;
+}
+
+.container button{
+    width: 100%;
+    font-size: 20px;
+    background-color: #50746C;
+    color:white;
+    border: 1px solid #50746C;
+    transition: 0.2s all;
+}
+
+.container button:hover{
+    background-color: white;
+    color: #50746C;
+}

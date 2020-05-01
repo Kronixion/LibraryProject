@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from account.views import signIn, signOut, shoppingCart, dashboard
 from book.views import searchBooks
 from purchases.views import orders, detailedOrder
-from requests.views import rent
+from requests.views import rent, exchangeRequestForm, staffDashboard
 
 
 urlpatterns = [
@@ -18,7 +18,9 @@ urlpatterns = [
     path('orders/',orders,name='orders'),
     path('orders/<int:id>/',detailedOrder,name='detailedOrder'),
     path('rent/',rent, name='rent'),
-    path('dashboard/',dashboard, name='dashboard')
+    path('dashboard/',dashboard, name='dashboard'),
+    path('book/<int:id>/exchangeForm/',exchangeRequestForm,name='exchangeRequestForm'),
+    path('staffDashboard/',staffDashboard, name='staffDashboard')
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

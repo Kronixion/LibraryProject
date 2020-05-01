@@ -46,7 +46,7 @@
                     {%if book.exchange == False%}
                         <button class="disabledButton" disabled>Exchange</button>
                     {%else%}
-                        <button class="activeButton" value="{{book.id}}">Exchange</button>
+                        <a href="{%url 'exchangeRequestForm' id=book.id%}"><button class="activeButton">Exchange</button></a>
                     {%endif%}
                     <button class="activeButton buyButton" value={{book.id}}>Buy</button>
                 </div>
