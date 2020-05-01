@@ -78,6 +78,7 @@ body {
 
 #orderButton:hover{
   opacity: 0.9;
+  color: white;
 }
 
 hr.style-one {

@@ -22,10 +22,10 @@
     {%if books%}
     {%for book in books%}
         <div class="row book">
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <img src="/media/{{book.coverImage}}" alt="">
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <p><span class="label">Title:</span> <span class="title">{{book.title}}</span></p>
                 <p><span class="label">Author:</span> {{book.author}}</p>
                 <p><span class="label">Date:</span> {{book.yearOfRelease}}</p>
@@ -33,20 +33,20 @@
                 <p><span class="label">ISBN:</span> {{book.ISBN}}</p>
                 <p><span class="label">Price:</span> {{book.price}}$</p>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-6">
                 <p class="description"><span class="label">Description:</span> {{book.description}}</p>
             </div>
-            <div class="col-lg-3 d-flex justify-content-end">
+            <div class="col-lg-3 col-md-6 d-flex justify-content-end">
                 <div>
                     {%if book.rental == False%}
                         <button class="disabledButton" disabled>Rent</button>
                     {%else%}
-                        <button class="activeButton">Rent</button>
+                        <button class="activeButton rentButton" value="{{book.id}}">Rent</button>
                     {%endif%}
                     {%if book.exchange == False%}
                         <button class="disabledButton" disabled>Exchange</button>
                     {%else%}
-                        <button class="activeButton">Exchange</button>
+                        <button class="activeButton" value="{{book.id}}">Exchange</button>
                     {%endif%}
                     <button class="activeButton buyButton" value={{book.id}}>Buy</button>
                 </div>
@@ -71,6 +71,17 @@
     $(".buyButton").click(function(){
         let bookId = $(this).attr("value")
         $.post("/shoppingCart/",
+        {
+            bookId: bookId,
+        },
+        function(data, status){
+            alert(data);
+        });
+    })
+
+    $(".rentButton").click(function(){
+        let bookId = $(this).attr("value")
+        $.post("/rent/",
         {
             bookId: bookId,
         },

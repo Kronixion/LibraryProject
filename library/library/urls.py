@@ -6,6 +6,8 @@ from django.conf.urls.static import static
 from account.views import signIn, signOut, shoppingCart
 from book.views import searchBooks
 from purchases.views import orders, detailedOrder
+from requests.views import rent
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,6 +17,7 @@ urlpatterns = [
     path('shoppingCart/',shoppingCart,name='shoppingCart'),
     path('orders/',orders,name='orders'),
     path('orders/<int:id>/',detailedOrder,name='detailedOrder'),
+    path('rent/',rent, name='rent'),
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

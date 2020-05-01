@@ -2,7 +2,9 @@ from django.shortcuts import render,redirect
 from account.models import Account
 from .models import Order
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def orders(request):
     account = Account.objects.get(id = request.user.id)
     order = account.shoppingCart.books.all()
@@ -17,6 +19,7 @@ def orders(request):
     else:
         return render(request,'orders.html',{'orders':orders})
 
+@login_required
 def detailedOrder(request,id):
     account = Account.objects.get(id=request.user.id)
     order = Order.objects.get(id=id)
