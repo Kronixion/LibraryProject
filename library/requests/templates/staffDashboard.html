@@ -12,18 +12,55 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 d-flex justify-content-start">
-            <button class="rent">Rent</button><button class="exchange">Exchange</button>
+            <button id="rent">Rent</button><button id="exchange">Exchange</button>
         </div>
     </div>
-    <div class="rentRequests">
-        
+    <div id="rentRequests">
+        {%for rent in rentRequests%}
+        {%if rent.requestState == 'PENDING'%}
+            <div class="row">
+                <div class="col-lg-3"><p>{{rent.user.user.username}}</p></div>
+                <div class="col-lg-3"><p>{{rent.book.title}}</p></div>
+                <div class="col-lg-3 d-flex justify-content-center"><button class="acceptButton">Accept</button></div>
+                <div class="col-lg-3 d-flex justify-content-center"><button class="rejectButton">Reject</button></div>
+            </div>
+        {%endif%}
+        {%endfor%}
     </div>
-    <div class="exchangeRequests">
-
+    <div id="exchangeRequests">
+        {%for exchange in exchangeRequests%}
+        {%if exchange.requestState == 'PENDING'%}
+            <div class="row">
+                <div class="col-lg-3"><p>{{exchange.user.user.username}}</p></div>
+                <div class="col-lg-3"><p>{{exchange.book.title}}</p></div>
+                <div class="col-lg-6 d-flex justify-content-center"><a href="{%url 'detailedExchangeRequest' id=exchange.id%}"><button class="reviewButton">Review Request</button></a></div>
+            </div>
+        {%endif%}
+        {%endfor%}
     </div>
 </div>
 {%endblock%}
 
 {%block scripts%}
-
+<script>
+    $("#rent").css("background-color","#50746C");
+    $("#rent").css("color","white");
+    $("#exchangeRequests").css("display","none");
+    $("#rent").click(function(){
+        $("#rent").css("background-color","#50746C");
+        $("#rent").css("color","white");
+        $("#exchange").css("background-color","transparent");
+        $("#exchange").css("color","black");
+        $("#exchangeRequests").css("display","none");
+        $("#rentRequests").css("display","block");
+    })
+    $("#exchange").click(function(){
+        $("#exchange").css("background-color","#50746C");
+        $("#exchange").css("color","white");
+        $("#rent").css("background-color","transparent");
+        $("#rent").css("color","black");
+        $("#rentRequests").css("display","none");
+        $("#exchangeRequests").css("display","block");
+    })
+</script>
 {%endblock%}

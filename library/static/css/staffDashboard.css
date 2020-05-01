@@ -39,3 +39,63 @@ h3:first-of-type{
     color: white;
     background-color: #50746C;
 }
+
+.row{
+    margin-top:1%;
+}
+
+.row P{
+    text-align: center;
+    font-weight: 700;
+}
+
+.acceptButton{
+    width: 100%;
+    border-radius: 20px;
+    background-color: #1da826;
+    border-color: #1da826;
+    color:white;
+    transition: 0.2s all;
+}
+
+.acceptButton:hover{
+    color: #1da826;
+    background-color:  #EDDDC4;
+}
+
+.rejectButton{
+    width: 100%;
+    border-radius: 20px;
+    background-color: #a81f1d;
+    border-color: #a81f1d;
+    color:white;
+    transition: 0.2s all;
+}
+
+.rejectButton:hover{
+    color: #a81f1d;
+    background-color:  #EDDDC4;
+}
+
+.reviewButton{
+    width: 100%;
+    border-radius: 20px;
+    background-color: #a6a81d;
+    border-color: #a6a81d;
+    color:white;
+    transition: 0.2s all;
+}
+
+.reviewButton:hover{
+    color: #a6a81d;
+    background-color:  #EDDDC4;
+}
+
+.col-lg-6 a{
+    width: 100%;
+    height:50px;
+}
+
+button:focus{
+    outline:none;
+}

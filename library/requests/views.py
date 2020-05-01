@@ -42,3 +42,7 @@ def staffDashboard(request):
     rentRequests = RentRequest.objects.all()
     exchangeRequests = ExchangeRequest.objects.all()
     return render(request,'staffDashboard.html',{'rentRequests':rentRequests,'exchangeRequests':exchangeRequests})
+
+def detailedExchangeRequest(request, id):
+    exchangeRequest = ExchangeRequest.objects.get(id=id)
+    return render(request, 'detailedExchangeRequest.html','request':exchangeRequest)
