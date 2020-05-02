@@ -8,11 +8,23 @@
 <link rel="stylesheet" href="{%static 'css/detailedExchangeRequest.css'%}" type="text/css">
 {%endblock%}
 
+
 {%block body%}
+
+<h2>Exchange <span>{{request.book.title}}</span>, for <span>{{request.bookTitle}}</span>.</h2>
+<h3>Requested by <span>{{request.user.user.username}}</span>.</h3>
 <div class="container">
     <div class="row">
-        <div class="col-lg-6"><img src=""></div>
-        <div class="col-lg-6"></div>
+        <div class="col-lg-6"><img src="/media/{{request.bookImage}}"></div>
+        <div class="col-lg-6 text">
+            <p><strong>Book Title:</strong> {{request.bookTitle}}</p>
+            <p><strong>Book Author:</strong> {{request.bookAuthor}}</p>
+            <p><strong>Book State:</strong> {{request.bookState}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6"><button id="accept">Accept</button></div>
+        <div class="col-lg-6"><button id="reject">Reject</button></div>
     </div>
 </div>
 {%endblock%}

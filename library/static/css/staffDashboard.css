@@ -52,42 +52,42 @@ h3:first-of-type{
 .acceptButton{
     width: 100%;
     border-radius: 20px;
-    background-color: #1da826;
-    border-color: #1da826;
+    background-color: #50746C;
+    border-color: #50746C;
     color:white;
     transition: 0.2s all;
 }
 
 .acceptButton:hover{
-    color: #1da826;
+    color: #50746C;
     background-color:  #EDDDC4;
 }
 
 .rejectButton{
     width: 100%;
     border-radius: 20px;
-    background-color: #a81f1d;
-    border-color: #a81f1d;
+    background-color: #9c3e38;
+    border-color: #9c3e38;
     color:white;
     transition: 0.2s all;
 }
 
 .rejectButton:hover{
-    color: #a81f1d;
+    color: #9c3e38;
     background-color:  #EDDDC4;
 }
 
 .reviewButton{
     width: 100%;
     border-radius: 20px;
-    background-color: #a6a81d;
-    border-color: #a6a81d;
+    background-color: #9c9938;
+    border-color: #9c9938;
     color:white;
     transition: 0.2s all;
 }
 
 .reviewButton:hover{
-    color: #a6a81d;
+    color: #9c9938;
     background-color:  #EDDDC4;
 }
 
