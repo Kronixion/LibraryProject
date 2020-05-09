@@ -21,8 +21,8 @@
             <div class="row">
                 <div class="col-lg-3"><p>{{rent.user.user.username}}</p></div>
                 <div class="col-lg-3"><p>{{rent.book.title}}</p></div>
-                <div class="col-lg-3 d-flex justify-content-center"><button class="acceptButton">Accept</button></div>
-                <div class="col-lg-3 d-flex justify-content-center"><button class="rejectButton">Reject</button></div>
+                <div class="col-lg-3 d-flex justify-content-center"><button class="acceptButton" value = "{{rent.id}}">Accept</button></div>
+                <div class="col-lg-3 d-flex justify-content-center"><button class="rejectButton" value = "{{rent.id}}">Reject</button></div>
             </div>
         {%endif%}
         {%endfor%}
@@ -61,6 +61,26 @@
         $("#rent").css("color","black");
         $("#rentRequests").css("display","none");
         $("#exchangeRequests").css("display","block");
+    })
+
+    $(".acceptButton").click(function(){
+        let bookId = $(this).attr("value")
+        let buttonText = $(this).text()
+        $.post("/staffDashboard/",
+        {
+            requestStatus: buttonText,
+            id:bookId,
+        });
+    })
+
+    $(".rejectButton").click(function(){
+        let bookId = $(this).attr("value")
+        let buttonText = $(this).text()
+        $.post("/staffDashboard/",
+        {
+            requestStatus: buttonText,
+            id:bookId,
+        });
     })
 </script>
 {%endblock%}

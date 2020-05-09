@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from .forms import RequestExchangeForm
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.mail import send_mail
 
 @login_required
 @csrf_exempt
@@ -38,14 +39,46 @@ def exchangeRequestForm(request,id):
 
 @login_required
 @staff_member_required
+@csrf_exempt
 def staffDashboard(request):
-    rentRequests = RentRequest.objects.all()
-    exchangeRequests = ExchangeRequest.objects.all()
-    return render(request,'staffDashboard.html',{'rentRequests':rentRequests,'exchangeRequests':exchangeRequests})
+    if request.method == "POST":
+        if request.POST['requestStatus'] == "Accept":
+            rentRequest = RentRequest.objects.get(id=request.POST['id'])
+            rentRequest.requestState = 'ACCEPTED'
+        else:
+            rentRequest = RentRequest.objects.get(id=request.POST['id'])
+            rentRequest.requestState = 'REJECTED'
+        rentRequest.save()
+        return redirect('/staffDashboard/')
+    else:
+        rentRequests = RentRequest.objects.all()
+        exchangeRequests = ExchangeRequest.objects.all()
+        return render(request,'staffDashboard.html',{'rentRequests':rentRequests,'exchangeRequests':exchangeRequests})
 
 @login_required
 @staff_member_required
+@csrf_exempt
 def detailedExchangeRequest(request, id):
     exchangeRequest = ExchangeRequest.objects.get(id=id)
-    print(exchangeRequest.bookImage)
-    return render(request, 'detailedExchangeRequest.html',{'request':exchangeRequest})
+    if request.method == "POST":
+        if request.POST['requestStatus'] == "Accept":
+            send_mail(
+                'Booksters - noreply',
+                'Your exchange request for the book' + exchangeRequest.book.title + " has been accepted, in exchange for " + exchangeRequest.bookTitle + " ",
+                'booksters@wgmail.com',
+                [exchangeRequest.user.user.email],
+                fail_silently=False,
+            )
+        else:
+            send_mail(
+                'Booksters - noreply',
+                'Your exchange request for the book' + exchangeRequest.book.title + " has been denied, in exchange for " + exchangeRequest.bookTitle + " ",
+                'booksters@wgmail.com',
+                [exchangeRequest.user.user.email],
+                fail_silently=False,
+            )
+        ExchangeRequest.objects.get(id=id).delete()
+        return redirect('http://localhost:8000/staffDashboard/')
+    else:
+        print(exchangeRequest.bookImage)
+        return render(request, 'detailedExchangeRequest.html',{'request':exchangeRequest})

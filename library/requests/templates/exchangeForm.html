@@ -8,13 +8,13 @@
 {%endblock%}
 
 {%block body%}
-<h1>Exchange <span>{{book.title}}</span>, for another book !</h1>
+<h1>Exchange another book, for <span>{{book.title}}</span> !</h1>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
             
         </div>
-    </div>
+    </div>.
     <form action="{%url 'exchangeRequestForm' id=book.id%}" method="POST" enctype="multipart/form-data">
         {%csrf_token%}
         <div class="form-group">{{form.bookTitle}}</div>

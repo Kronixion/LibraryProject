@@ -28,3 +28,25 @@
     </div>
 </div>
 {%endblock%}
+
+{%block scripts%}
+<script>
+    $("#accept").click(function(){
+        let bookId = $(this).attr("value")
+        let buttonText = $(this).text()
+        $.post("/staffDashboard/exchangeRequest/{{request.id}}",
+        {
+            requestStatus: buttonText,
+        });
+    })
+
+    $("#reject").click(function(){
+        let bookId = $(this).attr("value")
+        let buttonText = $(this).text()
+        $.post("/staffDashboard/exchangeRequest/{{request.id}}",
+        {
+            requestStatus: buttonText,
+        });
+    })
+</script>
+{%endblock%}

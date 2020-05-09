@@ -74,6 +74,7 @@ body {
   background-color: #50746C;
   border:none;
   transition: 0.3s all;
+  color:white;
 }
 
 #orderButton:hover{
